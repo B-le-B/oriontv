@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure Git
         run: |
@@ -127,7 +127,7 @@ jobs:
           
           if git push origin master --force-with-lease; then
             echo "✅ Successfully pushed to origin"
-            echo "🚀 Streamlit Cloud will auto-deploy the changes!"
+            echo "🚀 Auto-deploy completed!"
           else
             echo "⚠️ Push with lease failed, trying regular push..."
             if git push origin master; then
